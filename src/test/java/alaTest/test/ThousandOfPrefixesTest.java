@@ -27,7 +27,7 @@ public class ThousandOfPrefixesTest {
 	@Before
 	public void before()
 	{
-		System.out.println("This TC is going to test the example in the statement");
+		System.out.println("This TC is going to test when there a thousand of prefixes, and to increase the challenge, several prefixes have the same number. The idea is to get the cheapest");
 		Operator operatorA = new Operator("A");
 		for(int i = 0; i < 1001; i++)
 		{

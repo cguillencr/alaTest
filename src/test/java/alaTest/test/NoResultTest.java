@@ -27,7 +27,7 @@ public class NoResultTest {
 	public void before()
 	{
 		System.out.println("----------- TC> "+this.getClass().getSimpleName()+"-----------");
-		System.out.println("This TC is going to find the solutionin thousand of prefixes. ");
+		System.out.println("This TC is going to test when there is no prefix for the phone number. The idea is get a null ");
 		Operator operatorA = new Operator("A");
 		operatorA.addPrefix(new Prefix("1", new BigDecimal(0.9)));
 		operatorA.addPrefix(new Prefix("268", new BigDecimal(5.1)));

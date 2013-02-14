@@ -28,7 +28,7 @@ public class MultiplePrefixesTest {
 	public void before()
 	{
 		System.out.println("----------- TC> "+this.getClass().getSimpleName()+"-----------");
-		System.out.println("This TC is going to test the example in the statement");
+		System.out.println("This TC is going to test the cases when multiples prefixes match with the phone number");
 		Operator operatorA = new Operator("A");
 		operatorA.addPrefix(new Prefix("8", new BigDecimal(9)));
 		operatorA.addPrefix(new Prefix("88", new BigDecimal(1)));
