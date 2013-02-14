@@ -21,15 +21,31 @@ public class OperatorManager {
 		
 		for(Operator o : operators)
 		{
+			Prefix subResult = null;
 			
 			sort.prefixes = o.getPrefixes();
 			sort.run();
 
-			o.printList();
+		//	o.printList();
 			
 			search.prefixes = o.getPrefixes();
 			search.phoneNumber = phoneNumber;
-			result = search.run();
+			subResult = search.run();
+			
+			if( result == null && subResult != null)
+			{
+				result = subResult;
+			}
+			else if(result != null && subResult != null)
+			{
+				
+				boolean isLastResultgreaterThanActual = (result.getPrice().compareTo(subResult.getPrice())) == 1;
+				
+				if(isLastResultgreaterThanActual)
+				{
+					result =  subResult;
+				}
+			}
 
 		}
 		

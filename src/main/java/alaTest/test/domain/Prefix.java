@@ -22,6 +22,13 @@ public class Prefix {
 		this.price = price;
 	}
 	
+	public Prefix() {
+		this.country = "";
+		this.area = "";
+		this.price = new BigDecimal(0);
+		this.operator =new Operator("");
+	}
+
 	public BigDecimal getPrice() 
 	{
 		return price;
@@ -60,7 +67,7 @@ public class Prefix {
 		if(object instanceof Prefix)
 		{
 			Prefix prefix = (Prefix)object;
-			boolean isSamePrice = price.equals(prefix.getPrice());
+			boolean isSamePrice = price.compareTo(prefix.getPrice()) == 0;
 			boolean isSameArea =  area.equals(prefix.getArea());
 			boolean isSameCountry = country.equals(prefix.getCountry());
 			

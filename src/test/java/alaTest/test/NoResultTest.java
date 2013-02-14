@@ -26,7 +26,8 @@ public class NoResultTest {
 	@Before
 	public void before()
 	{
-		System.out.println("This TC is going to test when the prefix is not present in the list of the operators");
+		System.out.println("----------- TC> "+this.getClass().getSimpleName()+"-----------");
+		System.out.println("This TC is going to find the solutionin thousand of prefixes. ");
 		Operator operatorA = new Operator("A");
 		operatorA.addPrefix(new Prefix("1", new BigDecimal(0.9)));
 		operatorA.addPrefix(new Prefix("268", new BigDecimal(5.1)));
@@ -62,6 +63,8 @@ public class NoResultTest {
 		
 		result = operatorManager.getCheapest();
 		
+		System.out.println("Result> "+result);
+		
 		assertNull(result);
 	
 	}
@@ -72,7 +75,10 @@ public class NoResultTest {
 	
 		long endTime = System.nanoTime();
 		long timeneeded =  ((endTime - startTime ) /1000000);
-		System.out.println("Test> "+this.getClass().getCanonicalName()+" takes: "+timeneeded+" miliseconds");	
+		System.out.println("Test> "+this.getClass().getSimpleName()+" takes: "+timeneeded+" miliseconds");
+		System.out.println("--------------------------------------------------------------");
+		System.out.println("");
+		System.out.println("");
 		
 	}
 

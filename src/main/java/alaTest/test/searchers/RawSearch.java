@@ -18,12 +18,27 @@ public class RawSearch extends Search{
 			
 			countryAndArea = p.getCountry() + p.getArea();
 			
-			if(phoneNumber.isPrefix(countryAndArea))
+			if( result == null && phoneNumber.isPrefix(countryAndArea))
 			{
-				result = p;
-				break;
+				result = p;		
 			}
-			
+			else if( result != null)
+			{
+				String prefixResult = result.getCountry() + result.getArea();
+				String prefixActual = p.getCountry() + p.getArea();
+						
+				boolean areSamePrefix  = prefixActual.equals(prefixResult);
+				boolean currentHasBetterPrice = result.getPrice().compareTo(p.getPrice()) == 1;
+							
+				if(!areSamePrefix)
+				{
+					break;
+				}
+				else if(areSamePrefix && currentHasBetterPrice)
+				{
+					result = p;	
+				}
+			}			
 		}
 		return result;
 	}

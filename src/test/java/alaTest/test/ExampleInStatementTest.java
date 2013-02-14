@@ -27,6 +27,7 @@ public class ExampleInStatementTest {
 	@Before
 	public void before()
 	{
+		System.out.println("----------- TC> "+this.getClass().getSimpleName()+"-----------");
 		System.out.println("This TC is going to test the example in the statement");
 		Operator operatorA = new Operator("A");
 		operatorA.addPrefix(new Prefix("1", new BigDecimal(0.9)));
@@ -52,7 +53,7 @@ public class ExampleInStatementTest {
 	}
 	
 	@Test
-	public void test() {
+	public void exampleInStatementTest() {
 		PhoneNumber phoneNumber = new PhoneNumber("4673212345"); 
 		Prefix result = null;
 		
@@ -63,34 +64,22 @@ public class ExampleInStatementTest {
 		
 		result = operatorManager.getCheapest();
 		
+		System.out.println("Result> "+result.toString());
+		
 		assertTrue(result.equals(new Prefix("467", new BigDecimal(1.0))));
 		
 	}
 
-	@Test
-	public void noResult() {
-		PhoneNumber phoneNumber = new PhoneNumber("2224673212345"); 
-		Prefix result = null;
-		
-		operatorManager.setOperators(operators);
-		operatorManager.setPhoneNumber(phoneNumber);
-		operatorManager.setSort(new MergeSort());
-		operatorManager.setSearch(new RawSearch());
-		
-		result = operatorManager.getCheapest();
-		
-		assertNull(result);
-	
-	}
-	
 	@After
 	public void after()
 	{
 	
 		long endTime = System.nanoTime();
 		long timeneeded =  ((endTime - startTime ) /1000000);
-		System.out.println("Test> "+this.getClass().getCanonicalName()+" takes: "+timeneeded+" miliseconds");	
-		
+		System.out.println("Test> "+this.getClass().getSimpleName()+" takes: "+timeneeded+" miliseconds");
+		System.out.println("--------------------------------------------------------------");
+		System.out.println("");
+		System.out.println("");
 	}
 
 }
